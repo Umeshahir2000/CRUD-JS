@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>JavaScript CRUD</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- table -->
+        <div class="row">
+            <h5 class="text-uppercase mt-4 col-sm-3">Table</h5>
+            <div class="col-sm-6"></div>
+            <button class="btn btn-primary mt-5 col-sm-2 float-right" type="submit" data-bs-toggle="modal"
+                data-bs-target="#exampleModal" id="add"> ADD </button>
+        </div>
+        <div class="cardborder-light">
+            <div class="card-body ">
+                <table class="table table-responsive-sm mt-3" id="table">
+                    <thead class="thead">
+                        <tr class="text-uppercase">
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Age</th>
+                            <th scope="col">Mobile no.</th>
+                            <th scope="col">Hobbies</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Student Resigtraion</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="form">
+                        <div class="modal-body">
+                            <input type="hidden" id="index">
+                            <label class="form-label">Full Name*</label>
+                            <input class="form-control" type="text" onchange="namefunc()" for="fullname" id="name"
+                                maxlength="50" placeholder="Enter full name" required>
+                            <small id="nameError" class="text-danger"></small><br>
+                            <label class="form-label">Age*</label>
+                            <input class="form-control " type="number" for="age" id="age" minlength="1" maxlength="3"
+                                placeholder="Enter Your Age" required onchange="agefunc()">
+                            <small id="ageError" class="text-danger"></small><br>
+                            <label class="form-label">Mobile No*</label>
+                            <input class="form-control " type="number" for="mobile" maxlength="10" id="number"
+                                placeholder="Enter Mobile no." required onchange="numberfunc()">
+                            <small id="numberError" class="text-danger"></small><br>
+                            <label class="form-label">Hobbies</label>
+
+                            <div class="form-check " id="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" value="Music" id="Music" name="hobbies"
+                                    onclick="return checkfunc()">
+                                <label class="form-check-label" for="flexCheckDefault1">
+                                    Music
+                                </label><br>
+                                <input class="form-check-input" type="checkbox" value="Dance" id="Dance" name="hobbies"
+                                    onclick="return checkfunc()">
+                                <label class="form-check-label" for="flexCheckDefault2">
+                                    Dance
+                                </label><br>
+                                <input class="form-check-input" type="checkbox" value="Game" id="Game" name="hobbies"
+                                    onclick="return checkfunc()">
+                                <label class="form-check-label" for="flexCheckDefault3">
+                                    Game
+                                </label><br>
+                                <input class="form-check-input" type="checkbox" value="Travelling" id="Travelling"
+                                    name="hobbies" onclick="return checkfunc()">
+                                <label class="form-check-label" for="flexCheckDefault4">
+                                    Travelling
+                                </label>
+                            </div>
+                            <small id="hobbiesError" class="text-danger"></small><br>
+                            <label class="form-label">Gender</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="gender" value="Male" id="Male"
+                                    checked>
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Male
+                                </label>
+                                <br>
+                                <input class="form-check-input" type="radio" name="gender" value="Female" id="Female">
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Female
+                                </label>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" id="close"
+                                data-bs-dismiss="modal">Close</button>
+                            <button type="button" id="save" class="btn btn-primary"
+                                data-bs-dismiss="modal">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="crud.js"></script>
+
+</body>
+
+
+</html>
